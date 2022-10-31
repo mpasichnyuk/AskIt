@@ -14,7 +14,10 @@
 
 <h2>Write your answer:</h2>
 
-<%= form_with model: [@question, @answer] do |f| %>
+<%= render 'shared/erros', object: @answer %>
+
+
+<%= form_with model:  [ @question, @answer ]  do |f| %>
   <div class="mb-3 row">
     <div class="col-sm-2 col-form-label">
       <%= f.label :body %>
@@ -26,4 +29,19 @@
   </div>
 
   <%= f.submit "Submit answer!", class: "btn btn-primary" %>
+<% end %>
+
+<h2 class="mt-5">Answers list:</h2>
+
+<% @answers.each do |answer| %>
+  <article class="mb-3">
+        <span>
+
+          <span>
+            <%= answer.body %>
+          </span>
+          <%= link_to "Delete", question_answers_path(@question, answer), class: 'btn btn-danger btn-sm', data: {method: :delete, confirm: 'Are you sure?'}%>
+
+      </span>
+  </article>
 <% end %>
