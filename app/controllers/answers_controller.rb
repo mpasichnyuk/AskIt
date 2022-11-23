@@ -1,6 +1,12 @@
 class AnswersController < ApplicationController
   before_action :set_question!
 
+  # PUBLIC METHODS
+
+  def edit
+    @answer = @question.answers.find(params[:id])
+  end
+
   def create
     @answer = @question.answers.build answer_params
 
@@ -16,14 +22,19 @@ class AnswersController < ApplicationController
   def destroy
     answer = @question.answers.find params[:id]
     answer.destroy
-    flash[:success] = "Answer deleted!"
+    flash[:success] = 'Answer deleted!'
     redirect_to question_path(@question)
   end
 
+  # PRIVATE METHODS
   private
 
   def answer_params
     params.require(:answer).permit(:body)
+  end
+
+  def new_question
+    return unless @question
   end
 
   def set_question!
