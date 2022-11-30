@@ -1,10 +1,18 @@
 class AnswersController < ApplicationController
   before_action :set_question!
+  before_action :set_answer!, except: :create
 
   # PUBLIC METHODS
 
-  def edit
-    @answer = @question.answers.find(params[:id])
+  def edit; end
+
+  def update
+    if @answer.update answer_params
+      flash[:success] = 'Answer updated successfully'
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
   end
 
   def create
@@ -20,24 +28,23 @@ class AnswersController < ApplicationController
   end
 
   def destroy
-    answer = @question.answers.find params[:id]
-    answer.destroy
+    @answer.destroy
     flash[:success] = 'Answer deleted!'
     redirect_to question_path(@question)
   end
 
   # PRIVATE METHODS
-  private
+  # private
 
   def answer_params
     params.require(:answer).permit(:body)
   end
 
-  def new_question
-    return unless @question
-  end
-
   def set_question!
     @question = Question.find params[:question_id]
+  end
+
+  def set_answer!
+    @answer = @question.answers.find params[:id]
   end
 end

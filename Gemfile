@@ -1,8 +1,15 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
-# ruby '2.7.4'
+# ruby '3.1.2'
+ruby '2.7.4'
+
+
+# To override the default version of Ruby for a particular project, move into the project root directory and enter the command 
+# asdf local ruby <version> .
+# run asdf reshim ruby if it wont switch
+# run asdf shell ruby 2.7.4 to temporary switch 
+# asdf exec gem install rails
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
