@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
       render :new
     end
   end
-
+  
   def update
     # @question = Question.find_by id: params[:id]
     if @question.update question_params
@@ -46,6 +46,11 @@ class QuestionsController < ApplicationController
       render :edit
     end
   end
+
+  def newaaa
+    
+  end
+
 
   private
 

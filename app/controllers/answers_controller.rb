@@ -6,6 +6,11 @@ class AnswersController < ApplicationController
 
   def edit; end
 
+  def jaaaar
+
+    
+  end
+
   def update
     if @answer.update answer_params
       flash[:success] = 'Answer updated successfully'
