@@ -1,14 +1,19 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   before_action :require_no_authentication, only: %i[new create]
   before_action :require_authentication, only: :destroy
-  def new
 
-  end
+  def new; end
 
   def create
     user = User.find_by email: params[:email]
+
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
+
+      remember(user) if params[:remember_me] == '1'
+
       flash[:success] = "Welcome back, #{current_user.name_or_email} !"
       redirect_to root_path
 
@@ -20,8 +25,7 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    flash[:success]= "See you later!"
+    flash[:success] = 'See you later!'
     redirect_to root_path
-
   end
 end
