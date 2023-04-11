@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show destroy edit update]
 
@@ -14,18 +16,12 @@ class QuestionsController < ApplicationController
     @question_params = Question
   end
 
-  def edit
-    # @question = Question.find_by id: params[:id]
-  end
-
-  def destroy
-    @question = Question.find_by id: params[:id]
-    @question.destroy
-    redirect_to questions_path
-  end
-
   def new
     @question = Question.new
+  end
+
+  def edit
+    # @question = Question.find_by id: params[:id]
   end
 
   def create
@@ -37,7 +33,7 @@ class QuestionsController < ApplicationController
       render :new
     end
   end
-  
+
   def update
     # @question = Question.find_by id: params[:id]
     if @question.update question_params
@@ -47,10 +43,13 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def newaaa
-    
+  def destroy
+    @question = Question.find_by id: params[:id]
+    @question.destroy
+    redirect_to questions_path
   end
 
+  def newaaa; end
 
   private
 

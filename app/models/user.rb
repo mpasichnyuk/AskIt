@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_secure_password
   validates :email, presence: true, uniqueness: true
@@ -8,6 +10,10 @@ class User < ApplicationRecord
     update_column :remember_token_digest, digest(token)
   end
 
+  def forget_me
+    update_column :remember_token_digest, nil
+  end
+
   def digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
 
@@ -15,6 +21,8 @@ class User < ApplicationRecord
   end
 
   def remember_token_authenticated?(remember_token)
+    return false if remember_token_digest.blank?
+
     BCrypt::Password.new(remember_token_digest).is_password?(remember_token)
   end
 end

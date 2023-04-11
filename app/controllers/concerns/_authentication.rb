@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Authentication
   extend ActiveSupport::Concern
 
@@ -5,7 +7,17 @@ module Authentication
     private
 
     def current_user
-      @current_user ||= User.find_by(id: session[:user_id]).decorate if session[:user_id].present?
+      if session[:user_id].present?
+        @current_user ||= User.find_by(id: session[:user_id]).decorate
+
+      elsif cookies.encrypted[:user_id].present?
+        user = User.find_by(id: cookies.encrypted[:user_id])
+        if user&.remember_token_authenticated?(cookies.encrypted[:remember_token])
+          sign_in user
+          @current_user ||= user.decorate
+        end
+
+      end
     end
 
     def user_signed_in?
@@ -32,11 +44,17 @@ module Authentication
       cookies.encrypted.permanent[:user_id] = user.id
     end
 
+    def forget(user)
+      user.forget_me
+      cookies.delete :user_id
+      cookies.delete :remember_token
+    end
+
     def sign_out
+      forget current_user
       session.delete :user_id
     end
 
     helper_method :current_user, :user_signed_in?
   end
 end
-

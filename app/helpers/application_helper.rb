@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
-  def nav_tab(title, url, options={})
+  def nav_tab(title, url, options = {})
     current_page = options.delete :current_page
 
     css_class = current_page == title ? 'text-white' : 'text-secondary'
@@ -12,12 +14,12 @@ module ApplicationHelper
 
     link_to title, url, options
   end
-  def currently_at(current_page = '')
-    render partial: 'shared/menu', locals: {current_page: current_page}
-  end
-  def oldaaa
 
+  def currently_at(current_page = '')
+    render partial: 'shared/menu', locals: { current_page: current_page }
   end
+
+  def oldaaa; end
 
   def full_title(page_title = '')
     base_title = 'AskIt'
