@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # ruby '3.1.2'
-ruby '2.7.4'
+ruby '3.2.2'
 
 # To override the default version of Ruby for a particular project, move into the project root directory and enter the command
 # asdf local ruby <version> .
@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'debug', '>= 1.0.0'
   gem 'faker', '~> 2'
 end
 

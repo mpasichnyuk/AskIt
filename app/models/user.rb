@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # validates :name, presence: true
 
   def remember_me
-    self.remember_token = SecureRandom.urlsafe_base64
+    self.remember_token = (SecureRandom.urlsafe_base64)
     update_column :remember_token_digest, digest(token)
   end
 
@@ -19,6 +19,16 @@ class User < ApplicationRecord
 
     BCrypt::Password.create(string, cost: cost)
   end
+
+  def remember_token=(token)
+    @token = token
+  end
+
+  def remember_token
+    @token
+  end
+
+  attr_accessor :token
 
   def remember_token_authenticated?(remember_token)
     return false if remember_token_digest.blank?
