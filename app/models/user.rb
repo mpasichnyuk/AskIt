@@ -2,8 +2,11 @@
 
 class User < ApplicationRecord
   has_secure_password
+
+  has_many :questions, dependent: :destroy
+
   validates :email, presence: true, uniqueness: true
-  # validates :name, presence: true
+  validates :name, presence: true
 
   def remember_me
     self.remember_token = SecureRandom.urlsafe_base64
