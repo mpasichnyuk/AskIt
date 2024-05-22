@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+# ruby '2.7.4'
 # ruby '3.1.2'
 ruby '2.7.4'
 
@@ -36,11 +37,13 @@ gem 'draper', '~> 4.0'
 gem 'kaminari', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootstrap', '~> 5.0.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker', '~> 2'
+  gem 'dependabot-omnibus' 
 end
 
 group :development do
