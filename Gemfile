@@ -44,7 +44,6 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'debug', '>= 1.0.0'
   gem 'faker', '~> 2'
-  gem 'dependabot-omnibus' 
 end
 
 group :development do
