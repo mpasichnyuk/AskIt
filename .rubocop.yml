@@ -4,7 +4,13 @@ require:
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 2.7
-  
+  TargetRubyVersion: 3.2
+
 Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false
