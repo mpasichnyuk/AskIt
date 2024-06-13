@@ -18,6 +18,4 @@ test:
 
 production:
   <<: *default
-  database: askit_production
-  username: pixel_place
-  password: <%= ENV['PIXEL_PLACE_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL']%>
