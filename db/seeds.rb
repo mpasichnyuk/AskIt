@@ -9,7 +9,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # CREATE 5 USERS
-debugger
 5.times do
   first_name = Faker::Name.first_name
   puts first_name
