@@ -1,16 +1,30 @@
 <% currently_at 'Home'%>
 <% provide :page_title  %>
 <h1> <%= @name %>  Welcome to Ask It! online web-app!</h1>
-
 <p>
-&copy; Mikhail Pasichniuk <%= Time.now.year %>
+  &copy; Mikhail Pasichniuk <%= Time.now.year %>
 </p>
-
-<h1>This is a simple CRUD RESTful app made using Ruby on Rails</h1>
-<h4>  Featuring: </h4>
+<h2> CRUD RESTful app made using Ruby on Rails</h2>
 <p>Simple Reddit -style app where users can ask questions and comment with asnwers</p>
-<p>made with Kaminari for pagination, Bootstrap5 for styling, handmade user sign-in functions using bcrypt for hashing Passwords</p>
-also
-- Faker gem used ti generate Questions and Answers to seed database
-- MySql database, plan to move to Postgresql
--<Plug>PeepOpenlan to make EXcel import export
+<h4>  details: </h4>
+<ul>made with:
+  <li>
+    Kaminari for pagination
+  </li>
+  <li>
+    Bootstrap5 for styling 
+  </li>
+  <li>
+    handmade sign-in feature using bcrypt for hashing passwords
+  </li>
+  <li>
+    Faker gem used to generate Questions and Answers to seed database
+  </li>
+  <li>
+    PostgreSQL database 
+  </li>
+  <li>
+    ALSXLSX gem to export to XLSX files
+  </li>
+  <li></li>
+</ul>
