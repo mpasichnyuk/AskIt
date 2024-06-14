@@ -30,6 +30,8 @@ class QuestionsController < ApplicationController
       flash[:success] = 'Question created!'
       redirect_to questions_path
     else
+      error_messages = @question.errors.full_messages.join(', ')
+      flash.now[:warning] = "Error: #{error_messages}"
       render :new
     end
   end
