@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails RESTful CRUD app
 
-Things you may want to cover:
+live version at: https://askit-rails-crud-app.onrender.com/
 
-* Ruby version
+### WARNING!
 
-* System dependencies
+It can take a minute to load first time you access it, because hosting will pause apps that use free plan. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It needs time to spin up the virtual environment and start the server.
