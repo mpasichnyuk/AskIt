@@ -19,7 +19,6 @@ gem 'rails', '~> 7.1', '>= 7.1.3.4'
 gem 'puma', '~> 6.4', '>= 6.4.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'sprockets', '~> 4.2', '>= 4.2.1'
 gem 'jsbundling-rails', '~> 1.3'
 gem 'cssbundling-rails', '~> 1.3'
