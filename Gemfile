@@ -18,10 +18,10 @@ gem 'rails', '~> 7.1', '>= 7.1.3.4'
 # Use Puma as the app server
 gem 'puma', '~> 6.4', '>= 6.4.2'
 # Use SCSS for stylesheets
+gem 'cssbundling-rails', '~> 1.3'
+gem 'jsbundling-rails', '~> 1.3'
 gem 'sass-rails', '>= 6'
 gem 'sprockets', '~> 4.2', '>= 4.2.1'
-gem 'jsbundling-rails', '~> 1.3'
-gem 'cssbundling-rails', '~> 1.3'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -72,6 +72,6 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'faker', '~> 3.4', '>= 3.4.1'
-gem "pg", "~> 1.5"
+gem 'pg', '~> 1.5'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
