@@ -26,6 +26,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new question_params
+    @question.user = current_user
     if @question.save
       flash[:success] = 'Question created!'
       redirect_to questions_path
@@ -37,7 +38,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    # @question = Question.find_by id: params[:id]
+    @question = Question.find_by id: params[:id]
     if @question.update question_params
       redirect_to questions_path
     else
