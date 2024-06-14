@@ -52,8 +52,6 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
-  def newaaa; end
-
   private
 
   def question_params
