@@ -14,7 +14,7 @@
     <article class="card">
     <div class="card-body">
     <h4>  <%= question.title %>  </h4>
-    <p> by:<%= question.user.name  %> </p>
+    <p> by:<%= question&.user&.name  %> </p>
     <section class="card-text">
     <p class="my-2">
       <%= truncate strip_tags(question.body), length: 150 %>
