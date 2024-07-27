@@ -14,7 +14,7 @@ module Authentication
         user = User.find_by(id: cookies.encrypted[:user_id])
         if user&.remember_token_authenticated?(cookies.encrypted[:remember_token])
           sign_in user
-          @current_user ||= user.decorate
+          @current_user ||= user&.decorate
         end
 
       end
